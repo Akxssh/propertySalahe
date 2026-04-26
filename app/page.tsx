@@ -85,13 +85,20 @@ function HeroSectionOne() {
         >
           <Link
             href="https://wa.me/919739807465?text=Hi%20I%20found%20Property%20Salahe%20from%20[Source]%20and%20I%20want%20details%20about%20projects%20in%20Bangalore."
-            className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
+            className="relative z-10 mt-8 flex flex-col flex-wrap items-center justify-center gap-4"
           >
             <Button className="max-h-sm flex w-80 transform rounded-lg bg-black p-6 text-xl font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
               Get started on whatsapp{" "}
               <IconBrandWhatsapp className="scale-150" />
             </Button>
+            {/* other social media platforms , not ready yet : */}
+            {/* <span className="text-2xl">also checkout</span> */}
+            {/* <Button className="h-auto w-auto min-w-80 gap-4 p-4 text-2xl text-white"> */}
+            {/*   <InstagramIcon size={1.5} className="mr-2 inline-block" /> */}
+            {/*   Visit */}
+            {/* </Button> */}
           </Link>
+
           {/*contact support btn*/}
           {/*<button className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900">
             Contact Support
@@ -131,9 +138,7 @@ export function NavbarDemo() {
     //   link: "#contact",
     // },
   ]
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
   return (
     <div className="relative w-full">
       <Navbar>
@@ -196,5 +201,27 @@ export function NavbarDemo() {
         </MobileNav>
       </Navbar>
     </div>
+  )
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="scale-250"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" />
+      <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+      <path d="M16.5 7.5v.01" />
+    </svg>
   )
 }
