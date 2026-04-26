@@ -57,13 +57,17 @@ function HeroSectionOne() {
         <motion.p
           initial={{
             opacity: 0,
+            y: 10,
+            filter: "blur(2px)",
           }}
           animate={{
             opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
           }}
           transition={{
             duration: 0.3,
-            delay: 0.8,
+            delay: 0.9,
           }}
           className="text-md relative z-10 mx-auto max-w-xl py-4 text-center font-normal text-neutral-600 dark:text-neutral-400"
         >
@@ -73,13 +77,17 @@ function HeroSectionOne() {
         <motion.div
           initial={{
             opacity: 0,
+            y: 10,
+            filter: "blur(2px)",
           }}
           animate={{
             opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
           }}
           transition={{
             duration: 0.3,
-            delay: 1,
+            delay: 1.2,
           }}
           className="relative z-10 flex flex-wrap items-center justify-center"
         >
