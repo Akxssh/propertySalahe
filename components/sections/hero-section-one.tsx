@@ -6,22 +6,7 @@ import { Meteors } from "@/components/ui/meteors"
 import { RainbowButton } from "@/components/ui/rainbow-button"
 import { motion } from "motion/react"
 import { useRouter } from "next/navigation"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Field, FieldGroup } from "../ui/field"
-// import { Form } from "@/components/ui/form"
-import { Label } from "@/components/ui/label"
 import { GetStartedDialog } from "components/get-started-dialog"
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
 import { useState } from "react"
 export default function HeroSectionOne() {
   const router = useRouter()

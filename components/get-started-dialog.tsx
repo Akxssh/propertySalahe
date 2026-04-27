@@ -113,7 +113,7 @@ Name: ${formData.name}
 Phone: ${formData.phone}`
 
     const encoded = encodeURIComponent(message)
-    window.open(`https://wa.me/919876543210?text=${encoded}`, "_blank")
+    window.open(`https://wa.me/919739807465?text=${encoded}`, "_blank")
     onOpenChange(false)
     setStep(1)
   }
