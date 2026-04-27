@@ -17,7 +17,6 @@ export default function ContactForm() {
       <div className="flex w-full max-w-sm flex-col gap-4">
         <Input
           placeholder="Your Name"
-          value={userName}
           className="h-12 w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 text-white placeholder:text-zinc-500 focus-visible:ring-2 focus-visible:ring-zinc-700 focus-visible:ring-offset-0"
         />
         <Input

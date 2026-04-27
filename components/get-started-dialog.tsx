@@ -1,5 +1,6 @@
 "use client"
 
+import { supabase } from "@/lib/supabaseClient.ts"
 import * as React from "react"
 import {
   Dialog,
@@ -21,6 +22,7 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 const AREAS = [
   "Whitefield",
@@ -69,7 +71,7 @@ export function GetStartedDialog({ open, onOpenChange }: GetStartedDialogProps) 
     name: "",
     phone: "",
   })
-
+  const [isLoading, setIsLoading] = useState(false)
   const totalSteps = 4
 
   const formatBudget = (value: number) => {
@@ -103,7 +105,7 @@ export function GetStartedDialog({ open, onOpenChange }: GetStartedDialogProps) 
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const message = `Hi! I'm looking for a ${formData.bhk} BHK home in Bangalore.
 
 Budget: ${formatBudget(formData.budgetRange[0])} - ${formatBudget(formData.budgetRange[1])}
@@ -113,7 +115,34 @@ Name: ${formData.name}
 Phone: ${formData.phone}`
 
     const encoded = encodeURIComponent(message)
-    window.open(`https://wa.me/919739807465?text=${encoded}`, "_blank")
+
+    setIsLoading(true)
+
+    const handleSupabaseInsert = async () => {
+      const { error } = await supabase.from("leads").insert([
+        {
+          name: formData.name,
+          phone: formData.phone,
+          budget_min: formData.budgetRange[0],
+          budget_max: formData.budgetRange[1],
+          areas: formData.areas,
+          bhk: formData.bhk,
+          timeline: formData.timeline,
+          source: "website",
+          status: "new",
+        },
+      ])
+      if (error) {
+        alert("Failed to save lead. Try again.")
+        console.log(error)
+        return
+      }
+    }
+    await handleSupabaseInsert()
+    if (!isLoading) {
+      window.open(`https://wa.me/919739807465?text=${encoded}`, "_blank")
+    }
+    setIsLoading(false)
     onOpenChange(false)
     setStep(1)
   }
