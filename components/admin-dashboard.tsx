@@ -10,6 +10,7 @@ import { RefreshCw, Building2 } from "lucide-react"
 import type { Lead } from "@/lib/types"
 import { supabase } from "@/lib/supabaseClient"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export function AdminDashboard() {
   const [leads, setLeads] = useState<Lead[]>([])
@@ -18,6 +19,7 @@ export function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(true)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
+  const router = useRouter()
   const fetchLeads = async () => {
     console.log("Fetching leads from Supabase..."); // Log fetch initiation
     const { data, error } = await supabase
@@ -64,16 +66,22 @@ export function AdminDashboard() {
     setSelectedLead(updatedLead)
   }
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
-          <p className="text-muted-foreground">Loading leads...</p>
-        </div>
-      </div>
-    )
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <div className="flex flex-col items-center gap-4">
+  //         <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
+  //         <p className="text-muted-foreground">Loading leads...</p>
+  //       </div>
+  //     </div>
+  //   )
+  // }
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (!data.session) router.replace("/login?next=/admin")
+    })
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
@@ -122,3 +130,4 @@ export function AdminDashboard() {
     </div>
   )
 }
+
