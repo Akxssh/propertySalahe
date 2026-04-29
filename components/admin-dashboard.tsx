@@ -8,7 +8,8 @@ import { LeadDrawer } from "./lead-drawer"
 import { Button } from "@/components/ui/button"
 import { RefreshCw, Building2 } from "lucide-react"
 import type { Lead } from "@/lib/types"
-import { supabase } from "@/lib/supabaseClient.ts"
+import { supabase } from "@/lib/supabaseClient"
+import Image from "next/image"
 
 export function AdminDashboard() {
   const [leads, setLeads] = useState<Lead[]>([])
@@ -82,12 +83,13 @@ export function AdminDashboard() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-primary/10">
-                <Building2 className="h-5 w-5 text-primary" />
+                {/* <Building2 className="h-5 w-5 text-primary" /> */}
+                <Image src="/image-1.webp" alt="PropertySalahe logo" width={60} height={60} className="rounded-sm" />
               </div>
               <div>
-                <h1 className="text-xl font-semibold">Leads Admin</h1>
+                <h1 className="text-xl font-semibold">PropertySalahe</h1>
                 <p className="text-sm text-muted-foreground">
-                  Real Estate CRM
+                  Lead tracker
                 </p>
               </div>
             </div>

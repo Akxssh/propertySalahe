@@ -30,6 +30,10 @@ export default function NavbarDemo() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const loginRedirect = () => {
+    window.location.href = "/login"
+    // setIsMobileMenuOpen(false)
+  }
   return (
     <div className="relative w-full">
       <Navbar>
@@ -69,19 +73,19 @@ export default function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={loginRedirect}
                 variant="primary"
                 className="w-full"
               >
                 Login
               </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
+              {/* <NavbarButton */}
+              {/*   onClick={() => setIsMobileMenuOpen(false)} */}
+              {/*   variant="primary" */}
+              {/*   className="w-full" */}
+              {/* > */}
+              {/*   Book a call */}
+              {/* </NavbarButton> */}
             </div>
           </MobileNavMenu>
         </MobileNav>
