@@ -19,7 +19,7 @@ export default function CallToAction() {
           <Button
             className="mt-8 scale-125 flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-black transition hover:bg-zinc-200"
           >
-            Get started on WhatsApp
+            Connect with us on WhatsApp
             <IconBrandWhatsapp size={20} />
           </Button>
         </Link>

@@ -44,21 +44,22 @@ export default function HeroSectionOne() {
                     className="relative mr-2 inline-block text-whtie"
                   >
                     {isCostly ? (
-                      <Backlight className="inline-block"> <Highlighter
-                        action="underline"
-                        color="#FF3B30"
-                        animationDuration={400}
-                      >
-                        <span
-                          style={{
-                            display: "inline-block",
-                            color: "#ef4444",
-                            animationDelay: `${wordEndDelay}s`,
-                          }}
+                      <Backlight className="inline-block">
+                        <Highlighter
+                          action="underline"
+                          color="#FF3B30"
+                          animationDuration={400}
                         >
-                          {word}
-                        </span>
-                      </Highlighter>
+                          <span
+                            style={{
+                              display: "inline-block",
+                              color: "#ef4444",
+                              animationDelay: `${wordEndDelay}s`,
+                            }}
+                          >
+                            {word}
+                          </span>
+                        </Highlighter>
 
                       </Backlight>
                     ) : (
