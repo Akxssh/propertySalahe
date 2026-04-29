@@ -41,7 +41,7 @@ export default function HeroSectionOne() {
                       delay: index * baseDelay,
                       ease: "easeInOut",
                     }}
-                    className="relative mr-2 inline-block"
+                    className="relative mr-2 inline-block text-whtie"
                   >
                     {isCostly ? (
                       <Backlight className="inline-block"> <Highlighter
@@ -80,7 +80,7 @@ export default function HeroSectionOne() {
             </motion.p>
             <RainbowButton
               onClick={() => setDialogOpen(true)}
-              className="mx-auto flex w-80 transform rounded-lg bg-black p-6 text-xl font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+              className="mx-auto flex w-80 transform rounded-lg dark:bg-black bg-white p-6 text-xl font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
               Get started
             </RainbowButton>
             <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
